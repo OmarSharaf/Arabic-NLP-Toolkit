@@ -81,14 +81,14 @@ transformers = [
 
 # Development dependencies
 dev = [
-    "pytest>=7.4",
-    "pytest-cov>=4.1",
-    "pytest-xdist>=3.3",       # Parallel test execution
-    "pytest-benchmark>=4.0",   # Performance benchmarks
-    "mypy>=1.7",
-    "ruff>=0.1",
-    "black>=23.0",
-    "pre-commit>=3.5",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.1.0",
+    "pytest-xdist>=3.8.0",       # Parallel test execution
+    "pytest-benchmark>=5.2.3",   # Performance benchmarks
+    "mypy>=1.19.1",
+    "ruff>=0.15.15",
+    "black>=25.11.0",
+    "pre-commit>=4.3.0",
     "ipython",
     "twine>=4.0",
     "build>=1.0",
