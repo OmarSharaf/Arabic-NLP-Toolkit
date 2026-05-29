@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1419"/>
+      <stop offset="50%" style="stop-color:#1a2332"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="40" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="200" cy="120" r="180" fill="#3b82f6" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="1100" cy="520" r="220" fill="#8b5cf6" opacity="0.1" filter="url(#glow)"/>
+  <text x="80" y="200" font-family="Segoe UI, Tahoma, sans-serif" font-size="72" font-weight="700" fill="#e8edf4">=$ arabic-nlp-toolkit</text>
+  <text x="80" y="280" font-family="Segoe UI, Tahoma, sans-serif" font-size="36" fill="#8b9cb3">Arabic NLP for dialects, sentiment, NER &amp; more</text>
+  <rect x="80" y="320" width="520" height="6" rx="3" fill="url(#accent)"/>
+  <text x="80" y="400" font-family="Segoe UI, Tahoma, sans-serif" font-size="28" fill="#93c5fd">< 8 dialects  ·  =¬ Sentiment  ·  <÷ NER  ·  = Keywords</text>
+  <text x="80" y="450" font-family="Segoe UI, Tahoma, sans-serif" font-size="28" fill="#93c5fd">=$ Franco-Arabic  ·  =æ Pydantic v2  ·  ¡ Zero core deps</text>
+  <text x="80" y="560" font-family="Segoe UI, Tahoma, sans-serif" font-size="24" fill="#64748b">pip install arabic-nlp-toolkit  ·  MIT License  ·  v2.0</text>
+  <text x="80" y="600" font-family="Segoe UI, Tahoma, sans-serif" font-size="22" fill="#475569" direction="rtl">E9'D,) 91(J) '-*1'AJ)  A5-I H9'EJ) H3H4J'D EJ/J'</text>
+</svg>

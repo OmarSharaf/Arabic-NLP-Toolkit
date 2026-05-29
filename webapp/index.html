@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arabic NLP Toolkit — Demo &amp; Profile</title>
+  <meta name="description" content="Interactive Arabic NLP demo — dialect detection, sentiment, NER, keywords, and more. Built for MSA and dialectal Arabic." />
+  <meta property="og:title" content="Arabic NLP Toolkit" />
+  <meta property="og:description" content="Production-ready Arabic NLP for dialects, sentiment, NER, keywords &amp; social media." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#1a2332" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="header">
+      <div class="header-brand">
+        <div class="logo-wrap">
+          <span class="logo">🔤</span>
+        </div>
+        <div>
+          <h1>Arabic NLP Toolkit</h1>
+          <p class="subtitle">معالجة عربية احترافية · <span lang="en">v2.0</span></p>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <button type="button" class="nav-tab active" data-view="playground">⚡ Playground</button>
+        <button type="button" class="nav-tab" data-view="profile">✨ Project Profile</button>
+      </nav>
+      <div class="header-meta">
+        <span id="status-badge" class="badge badge-muted">Connecting…</span>
+        <span id="version-badge" class="badge"></span>
+      </div>
+    </header>
+
+    <!-- ─── PLAYGROUND ─── -->
+    <main id="view-playground" class="view active">
+      <section class="input-panel">
+        <label for="input-text">Arabic text</label>
+        <textarea
+          id="input-text"
+          rows="5"
+          placeholder="اكتب أو الصق نصاً عربياً هنا…&#10;مثال: ازيك عامل ايه؟ زيارة محمد صلاح للقاهرة كانت رائعة جداً"
+        >ازيك عامل ايه النهارده؟ زيارة محمد صلاح لملعب الأهلي في القاهرة كانت رائعة جداً</textarea>
+
+        <div class="samples">
+          <span class="samples-label">Samples:</span>
+          <button type="button" class="chip" data-sample="egyptian">مصري</button>
+          <button type="button" class="chip" data-sample="gulf">خليجي</button>
+          <button type="button" class="chip" data-sample="msa">فصحى</button>
+          <button type="button" class="chip" data-sample="social">سوشيال</button>
+          <button type="button" class="chip" data-sample="negative">سلبي</button>
+        </div>
+
+        <div class="tool-grid" id="tool-grid">
+          <button type="button" class="tool-btn active" data-tool="analyze">📊 Full analysis</button>
+          <button type="button" class="tool-btn" data-tool="dialect">🌍 Dialect</button>
+          <button type="button" class="tool-btn" data-tool="sentiment">💬 Sentiment</button>
+          <button type="button" class="tool-btn" data-tool="ner">🏷️ NER</button>
+          <button type="button" class="tool-btn" data-tool="tokenize">✂️ Tokenize</button>
+          <button type="button" class="tool-btn" data-tool="normalize">🧹 Normalize</button>
+          <button type="button" class="tool-btn" data-tool="keywords">🔑 Keywords</button>
+          <button type="button" class="tool-btn" data-tool="profile">📋 Text profile</button>
+          <button type="button" class="tool-btn" data-tool="pos">🏷 POS</button>
+          <button type="button" class="tool-btn" data-tool="stats">📈 Stats</button>
+          <button type="button" class="tool-btn" data-tool="transliterate">🔤 Transliterate</button>
+        </div>
+
+        <div class="translit-options hidden" id="translit-options">
+          <label>Source
+            <select id="translit-source">
+              <option value="arabic" selected>Arabic</option>
+              <option value="franco">Franco</option>
+              <option value="buckwalter">Buckwalter</option>
+            </select>
+          </label>
+          <label>Target
+            <select id="translit-target">
+              <option value="franco" selected>Franco</option>
+              <option value="buckwalter">Buckwalter</option>
+              <option value="arabic">Arabic</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="button" id="run-btn" class="run-btn">
+          <span class="run-icon">▶</span> Run analysis
+        </button>
+      </section>
+
+      <section class="output-panel">
+        <div class="output-header">
+          <h2 id="output-title">Results</h2>
+          <div class="output-actions">
+            <button type="button" id="view-cards" class="tab active">Cards</button>
+            <button type="button" id="view-json" class="tab">JSON</button>
+            <button type="button" id="copy-btn" class="icon-btn" title="Copy">📋</button>
+          </div>
+        </div>
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <span>Processing…</span>
+        </div>
+        <div id="error" class="error hidden"></div>
+        <div id="cards-view" class="cards-view"></div>
+        <pre id="json-view" class="json-view hidden"></pre>
+      </section>
+    </main>
+
+    <!-- ─── PROJECT PROFILE ─── -->
+    <main id="view-profile" class="view profile-view hidden">
+      <section class="profile-hero">
+        <div class="hero-content">
+          <p class="hero-eyebrow" id="profile-version">v2.0.0</p>
+          <h2 class="hero-title" id="profile-name">arabic-nlp-toolkit</h2>
+          <p class="hero-tagline" id="profile-tagline-ar">معالجة اللغة العربية الاحترافية للنصوص الحقيقية</p>
+          <p class="hero-tagline-en" id="profile-tagline" lang="en">Production-ready Arabic NLP for real-world text</p>
+          <div class="hero-actions">
+            <button type="button" class="run-btn hero-cta" id="goto-playground">Try the playground →</button>
+            <a id="link-github" class="btn-outline" href="#" target="_blank" rel="noopener">GitHub</a>
+            <a id="link-pypi" class="btn-outline" href="#" target="_blank" rel="noopener">PyPI</a>
+          </div>
+          <code class="install-cmd" id="profile-install">pip install arabic-nlp-toolkit</code>
+        </div>
+        <div class="hero-stats" id="profile-stats"></div>
+      </section>
+
+      <section class="profile-section">
+        <h3 class="section-title">Features <span class="section-title-ar">الميزات</span></h3>
+        <div class="feature-grid" id="profile-features"></div>
+      </section>
+
+      <section class="profile-section profile-author">
+        <div class="author-card" id="profile-author"></div>
+        <div class="tech-card">
+          <h4>Tech stack</h4>
+          <ul class="tech-list">
+            <li><span class="tech-pill">Python 3.9+</span></li>
+            <li><span class="tech-pill">Pydantic v2</span></li>
+            <li><span class="tech-pill">FastAPI</span></li>
+            <li><span class="tech-pill">Rule-based NLP</span></li>
+            <li><span class="tech-pill">Zero core deps</span></li>
+            <li><span class="tech-pill">301+ tests</span></li>
+          </ul>
+          <p class="tech-note">Optional: <code>[ml]</code> <code>[transformers]</code> <code>[web]</code> <code>[dev]</code></p>
+        </div>
+      </section>
+
+      <section class="profile-section dialects-banner">
+        <h3 class="section-title">8 dialects supported</h3>
+        <div class="dialect-pills">
+          <span class="dialect-pill">MSA فصحى</span>
+          <span class="dialect-pill">Egyptian مصري</span>
+          <span class="dialect-pill">Gulf خليجي</span>
+          <span class="dialect-pill">Levantine شامي</span>
+          <span class="dialect-pill">Maghrebi مغربي</span>
+          <span class="dialect-pill">Iraqi عراقي</span>
+          <span class="dialect-pill">Yemeni يمني</span>
+          <span class="dialect-pill">Sudanese سوداني</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>arabic-nlp-toolkit · MIT</span>
+      <span id="timing"></span>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
