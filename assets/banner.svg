@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a0e14"/>
+      <stop offset="0.5" stop-color="#141c28"/>
+      <stop offset="1" stop-color="#0f1419"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#grid)" opacity="0.5"/>
+  <ellipse cx="150" cy="80" rx="200" ry="120" fill="#3b82f6" opacity="0.08"/>
+  <ellipse cx="1050" cy="320" rx="250" ry="150" fill="#8b5cf6" opacity="0.08"/>
+  <!-- decorative Arabic calligraphy stroke -->
+  <path d="M900 80 Q980 120 920 200 Q860 280 780 240" stroke="url(#title)" stroke-width="3" fill="none" opacity="0.2"/>
+  <path d="M950 100 Q1020 140 970 210" stroke="#22d3ee" stroke-width="2" fill="none" opacity="0.15"/>
+  <text x="80" y="140" font-family="Segoe UI,Tahoma,sans-serif" font-size="56" font-weight="700" fill="url(#title)">arabic-nlp-toolkit</text>
+  <text x="80" y="185" font-family="Segoe UI,Tahoma,sans-serif" font-size="22" fill="#94a3b8">Production-ready Arabic NLP · 8 dialects · Sentiment · NER · Keywords</text>
+  <text x="80" y="220" font-family="Segoe UI,Tahoma,sans-serif" font-size="18" fill="#64748b" direction="rtl">E9'D,) 91(J) '-*1'AJ) DDF5H5 'D-BJBJ)  A5-I H9'EJ) H3H4J'D EJ/J'</text>
+  <rect x="80" y="250" width="340" height="44" rx="10" fill="#1a2332" stroke="#334155"/>
+  <text x="100" y="278" font-family="Consolas,monospace" font-size="16" fill="#7ee787">pip install arabic-nlp-toolkit</text>
+  <g transform="translate(80,310)">
+    <rect width="90" height="32" rx="16" fill="rgba(59,130,246,0.15)" stroke="#3b82f6"/>
+    <text x="45" y="21" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">301+ tests</text>
+    <rect x="100" width="80" height="32" rx="16" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6"/>
+    <text x="140" y="21" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="600">Pydantic v2</text>
+    <rect x="190" width="100" height="32" rx="16" fill="rgba(34,197,94,0.15)" stroke="#22c55e"/>
+    <text x="240" y="21" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600">Zero core deps</text>
+    <rect x="300" width="90" height="32" rx="16" fill="rgba(34,211,238,0.15)" stroke="#22d3ee"/>
+    <text x="345" y="21" text-anchor="middle" fill="#a5f3fc" font-size="12" font-weight="600">Web demo</text>
+  </g>
+</svg>

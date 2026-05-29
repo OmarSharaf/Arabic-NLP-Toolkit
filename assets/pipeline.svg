@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" fill="none">
+  <defs>
+    <linearGradient id="pipe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="900" height="200" rx="16" fill="#0f1419"/>
+  <text x="450" y="28" text-anchor="middle" fill="#8b9cb3" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600">NLP PIPELINE</text>
+  <!-- boxes -->
+  <g font-family="Segoe UI,sans-serif" font-size="12" font-weight="600">
+    <rect x="24" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="74" y="88" text-anchor="middle" fill="#e8edf4">Input</text>
+    <text x="74" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">F5 91(J</text>
+
+    <rect x="154" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="204" y="88" text-anchor="middle" fill="#e8edf4">Normalize</text>
+    <text x="204" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">*7(J9</text>
+
+    <rect x="284" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="334" y="88" text-anchor="middle" fill="#e8edf4">Tokenize</text>
+    <text x="334" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">*B7J9</text>
+
+    <rect x="414" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="464" y="88" text-anchor="middle" fill="#e8edf4">Dialect</text>
+    <text x="464" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">DG,)</text>
+
+    <rect x="544" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="594" y="88" text-anchor="middle" fill="#e8edf4">Sentiment</text>
+    <text x="594" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">E4'91</text>
+
+    <rect x="674" y="55" width="100" height="72" rx="12" fill="#1a2332" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="724" y="88" text-anchor="middle" fill="#e8edf4">NER</text>
+    <text x="724" y="108" text-anchor="middle" fill="#8b9cb3" font-size="10">CJ'F'*</text>
+
+    <rect x="776" y="55" width="100" height="72" rx="12" fill="url(#pipe)" opacity="0.15" stroke="url(#pipe)" stroke-width="2"/>
+    <text x="826" y="88" text-anchor="middle" fill="#e8edf4">JSON</text>
+    <text x="826" y="108" text-anchor="middle" fill="#7ee787" font-size="10">export</text>
+  </g>
+  <!-- arrows -->
+  <line x1="124" y1="91" x2="154" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="254" y1="91" x2="284" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="384" y1="91" x2="414" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="514" y1="91" x2="544" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="644" y1="91" x2="674" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="774" y1="91" x2="776" y2="91" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="450" y="175" text-anchor="middle" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="11">ArabicNLP.analyze_document() · single call, typed Pydantic output</text>
+</svg>

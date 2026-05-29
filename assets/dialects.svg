@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none">
+  <defs>
+    <linearGradient id="hub" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="320" rx="16" fill="#0f1419"/>
+  <text x="400" y="32" text-anchor="middle" fill="#8b9cb3" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600">8 ARABIC DIALECTS · +E'F DG,'* 91(J)</text>
+  <circle cx="400" cy="170" r="44" fill="url(#hub)" opacity="0.25"/>
+  <circle cx="400" cy="170" r="32" fill="#1a2332" stroke="url(#hub)" stroke-width="2"/>
+  <text x="400" y="176" text-anchor="middle" fill="#e8edf4" font-family="Segoe UI,sans-serif" font-size="13" font-weight="700">NLP</text>
+  <!-- dialect nodes -->
+  <g font-family="Segoe UI,sans-serif" font-size="11" font-weight="600">
+    <g transform="translate(400,70)"><rect x="-52" y="-18" width="104" height="36" rx="18" fill="#1a2332" stroke="#3b82f6"/><text x="0" y="5" text-anchor="middle" fill="#93c5fd">MSA · A5-I</text></g>
+    <g transform="translate(580,120)"><rect x="-52" y="-18" width="104" height="36" rx="18" fill="#1a2332" stroke="#6366f1"/><text x="0" y="5" text-anchor="middle" fill="#c4b5fd">Gulf · .DJ,J</text></g>
+    <g transform="translate(620,200)"><rect x="-52" y="-18" width="104" height="36" rx="18" fill="#1a2332" stroke="#8b5cf6"/><text x="0" y="5" text-anchor="middle" fill="#ddd6fe">Egyptian · E51J</text></g>
+    <g transform="translate(520,270)"><rect x="-58" y="-18" width="116" height="36" rx="18" fill="#1a2332" stroke="#a78bfa"/><text x="0" y="5" text-anchor="middle" fill="#e9d5ff">Levantine · 4'EJ</text></g>
+    <g transform="translate(280,270)"><rect x="-58" y="-18" width="116" height="36" rx="18" fill="#1a2332" stroke="#22d3ee"/><text x="0" y="5" text-anchor="middle" fill="#a5f3fc">Maghrebi · E:1(J</text></g>
+    <g transform="translate(180,200)"><rect x="-48" y="-18" width="96" height="36" rx="18" fill="#1a2332" stroke="#14b8a6"/><text x="0" y="5" text-anchor="middle" fill="#99f6e4">Iraqi · 91'BJ</text></g>
+    <g transform="translate(220,120)"><rect x="-48" y="-18" width="96" height="36" rx="18" fill="#1a2332" stroke="#f59e0b"/><text x="0" y="5" text-anchor="middle" fill="#fde68a">Yemeni · JEFJ</text></g>
+    <g transform="translate(340,55)"><rect x="-58" y="-18" width="116" height="36" rx="18" fill="#1a2332" stroke="#f43f5e"/><text x="0" y="5" text-anchor="middle" fill="#fecdd3">Sudanese · 3H/'FJ</text></g>
+  </g>
+  <line x1="400" y1="114" x2="400" y2="88" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <line x1="432" y1="138" x2="528" y2="120" stroke="#6366f1" stroke-width="1" opacity="0.4"/>
+  <line x1="440" y1="198" x2="568" y2="200" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+</svg>

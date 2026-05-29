@@ -29,12 +29,31 @@ async function checkHealth() {
   try {
     const res = await fetch("/api/health");
     const data = await res.json();
-    $("#status-badge").textContent = "Online";
+    $("#status-badge").innerHTML = 'Online <span class="pulse"></span>';
     $("#status-badge").className = "badge badge-ok";
-    $("#version-badge").textContent = `v${data.version}`;
+    const vb = $("#version-badge");
+    vb.textContent = `v${data.version}`;
+    vb.className = "badge badge-accent";
   } catch {
     $("#status-badge").textContent = "Offline";
-    $("#status-badge").className = "badge";
+    $("#status-badge").className = "badge badge-muted";
+  }
+}
+
+function updateTextMeta() {
+  const text = $("#input-text").value;
+  const chars = text.length;
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  $("#char-count").textContent = chars.toLocaleString("ar-EG");
+  $("#word-count").textContent = words.toLocaleString("ar-EG");
+}
+
+function setEmptyState(show) {
+  $("#empty-state").classList.toggle("hidden", !show);
+  if (show) {
+    $("#cards-view").classList.add("hidden");
+  } else {
+    $("#cards-view").classList.remove("hidden");
   }
 }
 
@@ -52,8 +71,10 @@ async function runAnalysis() {
   $("#run-btn").disabled = true;
   $("#loading").classList.remove("hidden");
   $("#error").classList.add("hidden");
+  setEmptyState(false);
   $("#cards-view").innerHTML = "";
   $("#json-view").textContent = "";
+  $("#output-subtitle").textContent = "Processing…";
 
   const t0 = performance.now();
   let endpoint = `/api/${currentTool}`;
@@ -81,6 +102,7 @@ async function runAnalysis() {
     const ms = Math.round(performance.now() - t0);
     $("#timing").textContent = `${ms} ms`;
     $("#output-title").textContent = TOOL_LABELS[currentTool] || "Results";
+    $("#output-subtitle").textContent = `Completed in ${ms} ms`;
 
     renderCards(currentTool, data);
     $("#json-view").textContent = JSON.stringify(data, null, 2);
@@ -268,14 +290,18 @@ document.querySelectorAll(".tool-btn").forEach((btn) => {
     btn.classList.add("active");
     currentTool = btn.dataset.tool;
     $("#translit-options").classList.toggle("hidden", currentTool !== "transliterate");
+    $("#output-subtitle").textContent = TOOL_LABELS[currentTool] || "Select a tool and run analysis";
   });
 });
 
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
     $("#input-text").value = SAMPLES[chip.dataset.sample] || "";
+    updateTextMeta();
   });
 });
+
+$("#input-text").addEventListener("input", updateTextMeta);
 
 $("#run-btn").addEventListener("click", runAnalysis);
 
@@ -380,11 +406,13 @@ async function loadProjectProfile() {
 
 function initFromHash() {
   const view = location.hash.replace("#", "") || "playground";
+  updateTextMeta();
   if (view === "profile") {
     switchView("profile");
   } else {
     switchView("playground");
-    runAnalysis();
+    setEmptyState(true);
+    if (getText()) runAnalysis();
   }
 }
 
