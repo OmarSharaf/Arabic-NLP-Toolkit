@@ -74,7 +74,7 @@ ml = [
 
 # For transformer-based high-accuracy models
 transformers = [
-    "torch>=2.0",
+    "torch>=2.8.0",
     "transformers>=4.35",
     "tokenizers>=0.15",
 ]
