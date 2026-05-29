@@ -130,6 +130,6 @@ __all__ = [
 ]
 
 __author__ = "Omar S. M. Abdelfatah"
-__email__ = "omar@omarsharaf.me"
+__email__ = "omarsharaf@msn.com"
 __license__ = "MIT"
 __url__ = "https://github.com/OmarSharaf/arabic-nlp-toolkit"

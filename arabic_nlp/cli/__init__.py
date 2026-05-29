@@ -509,7 +509,7 @@ def cmd_version() -> None:
 
     print(f"arabic-nlp-toolkit v{__version__}")
     print(f"Version info: {__version_info__}")
-    print("Author: Omar S. M. Abdelfatah <omar@omarsharaf.me>")
+    print("Author: Omar S. M. Abdelfatah <omarsharaf@msn.com>")
     print("GitHub: https://github.com/OmarSharaf/arabic-nlp-toolkit")
 
 

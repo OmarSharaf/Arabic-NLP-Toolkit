@@ -11,7 +11,7 @@
 
 **Please do not open public GitHub issues for security vulnerabilities.**
 
-Send details to **omar@omarsharaf.me** with:
+Send details to **omarsharaf@msn.com** with:
 
 - Description of the issue
 - Steps to reproduce

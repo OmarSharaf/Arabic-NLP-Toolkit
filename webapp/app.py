@@ -90,7 +90,7 @@ async def project_profile() -> dict[str, Any]:
             "name": "Omar S. M. Abdelfatah",
             "website": "https://www.omarsharaf.me",
             "github": "https://github.com/OmarSharaf",
-            "email": "omar@omarsharaf.me",
+            "email": "omarsharaf@msn.com",
         },
         "links": {
             "github": "https://github.com/OmarSharaf/arabic-nlp-toolkit",

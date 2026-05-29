@@ -21,7 +21,7 @@ We pledge to make participation in **arabic-nlp-toolkit** a harassment-free expe
 
 ## Enforcement
 
-Report violations to **omar@omarsharaf.me**. All complaints will be reviewed and investigated promptly and fairly.
+Report violations to **omarsharaf@msn.com**. All complaints will be reviewed and investigated promptly and fairly.
 
 Project maintainers may remove, edit, or reject contributions that do not align with this Code of Conduct.
 

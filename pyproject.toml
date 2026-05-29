@@ -15,11 +15,11 @@ license = { file = "LICENSE" }
 requires-python = ">=3.9"
 
 authors = [
-    { name = "Omar S. M. Abdelfatah", email = "omar@omarsharaf.me" }
+    { name = "Omar S. M. Abdelfatah", email = "omarsharaf@msn.com" }
 ]
 
 maintainers = [
-    { name = "Omar S. M. Abdelfatah", email = "omar@omarsharaf.me" }
+    { name = "Omar S. M. Abdelfatah", email = "omarsharaf@msn.com" }
 ]
 
 keywords = [
