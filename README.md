@@ -1,102 +1,151 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Arabic NLP Toolkit — معالجة عربية احترافية" width="100%" />
-
-<br/><br/>
-
-<img src="assets/logo.svg" alt="Arabic NLP Toolkit logo" width="88" height="88" />
-
-<h1>arabic-nlp-toolkit</h1>
-
-<p><strong>Production-ready Arabic NLP for real-world text</strong><br/>
-<strong>معالجة اللغة العربية الاحترافية للنصوص الحقيقية</strong></p>
-
-<p>Dialects · Sentiment · NER · Morphology · POS · Keywords · Profiling · Web demo</p>
-
-[![PyPI version](https://img.shields.io/pypi/v/arabic-nlp-toolkit?style=flat-square&color=blue)](https://pypi.org/project/arabic-nlp-toolkit/)
-[![Python](https://img.shields.io/pypi/pyversions/arabic-nlp-toolkit?style=flat-square)](https://pypi.org/project/arabic-nlp-toolkit/)
-[![CI](https://img.shields.io/github/actions/workflow/status/OmarSharaf/Arabic-NLP-Toolkit/ci.yml?style=flat-square&label=CI)](https://github.com/OmarSharaf/Arabic-NLP-Toolkit/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
-[![Tests](https://img.shields.io/badge/tests-301%2B%20passed-success?style=flat-square)](./tests/)
-[![Coverage](https://img.shields.io/badge/coverage-~89%25-brightgreen?style=flat-square)](./tests/)
+<img src="assets/banner.svg" alt="Arabic NLP Toolkit" width="100%" />
 
 <br/>
 
-**[Quick Start](#quick-start)** · **[Web Demo](#web-demo)** · **[Features](#features)** · **[Pipeline](#nlp-pipeline)** · **[API](./docs/API.md)** · **[Contributing](./CONTRIBUTING.md)**
+<img src="assets/logo.svg" alt="Arabic NLP Toolkit" width="72" height="72" />
+
+# arabic-nlp-toolkit
+
+**Production-grade Arabic natural language processing for dialectal, social, and standard text.**
+
+<p dir="rtl"><strong>معالجة لغوية عربية على مستوى الإنتاج — للهجات والنصوص الرقمية والفصحى</strong></p>
+
+<br/>
+
+[![PyPI](https://img.shields.io/pypi/v/arabic-nlp-toolkit?style=for-the-badge&logo=pypi&logoColor=white&labelColor=1a2332&color=3b82f6)](https://pypi.org/project/arabic-nlp-toolkit/)
+[![Python](https://img.shields.io/pypi/pyversions/arabic-nlp-toolkit?style=for-the-badge&logo=python&logoColor=white&labelColor=1a2332&color=6366f1)](https://pypi.org/project/arabic-nlp-toolkit/)
+[![CI](https://img.shields.io/github/actions/workflow/status/OmarSharaf/Arabic-NLP-Toolkit/ci.yml?style=for-the-badge&logo=github-actions&logoColor=white&labelColor=1a2332&label=CI)](https://github.com/OmarSharaf/Arabic-NLP-Toolkit/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-301%2B-success?style=for-the-badge&labelColor=1a2332)](./tests/)
+[![Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen?style=for-the-badge&labelColor=1a2332)](./tests/)
+[![License](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge&labelColor=1a2332)](./LICENSE)
+
+<br/>
+
+[**Install**](#installation) · [**Quick Start**](#quick-start) · [**Live Demo**](#live-demo) · [**Capabilities**](#capabilities) · [**API**](./docs/API.md) · [**Contributing**](./CONTRIBUTING.md)
 
 </div>
+
+<br/>
+
+> **Arabic NLP Toolkit** is a typed, offline-first Python library for analyzing real Arabic as it appears in the wild — Egyptian, Gulf, Levantine, Maghrebi, and Modern Standard Arabic — with a single, consistent API and structured Pydantic outputs ready for APIs, analytics, and research pipelines.
+
+---
+
+## At a glance
+
+<table>
+<tr>
+<td width="25%" align="center">
+<h3>8</h3>
+<p><strong>Dialects</strong><br/><sub>Confidence-ranked detection</sub></p>
+</td>
+<td width="25%" align="center">
+<h3>15+</h3>
+<p><strong>NLP modules</strong><br/><sub>One unified façade</sub></p>
+</td>
+<td width="25%" align="center">
+<h3>301+</h3>
+<p><strong>Tests</strong><br/><sub>~89% coverage</sub></p>
+</td>
+<td width="25%" align="center">
+<h3>1</h3>
+<p><strong>Core dependency</strong><br/><sub>Pydantic v2 only</sub></p>
+</td>
+</tr>
+</table>
+
+| | |
+|:--|:--|
+| **Designed for** | Social media, reviews, chat, news, and mixed-register Arabic |
+| **Output model** | Frozen Pydantic v2 objects · JSON-serializable · IDE-friendly |
+| **Deployment** | No GPU · No model downloads · Runs fully offline |
+| **Integration** | Python API · CLI · FastAPI web demo · batch pipelines |
 
 ---
 
 ## Table of contents
 
-- [Why this library?](#why-this-library)
+<details open>
+<summary><strong>Expand navigation</strong></summary>
+
+- [Why Arabic NLP Toolkit](#why-arabic-nlp-toolkit)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Web Demo](#web-demo)
-- [Features](#features)
+- [Live Demo](#live-demo)
+- [Capabilities](#capabilities)
 - [NLP Pipeline](#nlp-pipeline)
-- [Dialects](#dialects)
-- [CLI](#cli)
+- [Supported dialects](#supported-dialects)
+- [Command-line interface](#command-line-interface)
 - [Architecture](#architecture)
 - [Development](#development)
-- [CI/CD](#cicd)
+- [Quality & CI/CD](#quality--cicd)
 - [Documentation](#documentation)
 - [Roadmap](#roadmap)
 - [Citation](#citation)
 - [Author](#author)
 - [License](#license)
 
+</details>
+
 ---
 
-## Why this library?
+## Why Arabic NLP Toolkit
 
-Most Arabic NLP tools target **Modern Standard Arabic (MSA)** only. Over 400 million people speak **Egyptian, Gulf, Levantine, and Maghrebi** Arabic daily — on social media, in reviews, and in chat.
+Arabic is not a monolith. Hundreds of millions of speakers use **regional dialects** every day — in comments, DMs, product reviews, and customer support — while most NLP stacks still optimize for textbook Modern Standard Arabic.
 
-`arabic-nlp-toolkit` is built for that reality:
+**Arabic NLP Toolkit** closes that gap with a production-minded toolkit built for practitioners who need reliable results without spinning up GPUs or external APIs.
 
-| | |
-|---|---|
-| 🌍 | **8 dialects** with confidence scores |
-| 📱 | **Social-media-ready** normalization and profiling |
-| 🔤 | **Franco-Arabic** transliteration (chat alphabet) |
-| 📦 | **Typed Pydantic v2** results — IDE-friendly, JSON-serializable |
-| ⚡ | **Zero required dependencies** beyond `pydantic` for the core library |
-| 🖥️ | **Interactive web demo** — test every feature in the browser |
+### What sets it apart
 
-### Comparison
+| Principle | How we deliver it |
+|-----------|-------------------|
+| **Dialect-first** | Eight varieties with ranked confidence scores and Arabic display names |
+| **Social-native** | Normalization for mentions, hashtags, URLs, emoji, and Franco-Arabic chat script |
+| **Type-safe by default** | Every result is a validated Pydantic model — not ad-hoc dicts |
+| **Ship-ready** | Single-call document analysis with `.to_json()` for REST and ETL |
+| **Lean core** | Rule-based engine; optional `[ml]` / `[transformers]` extras when you need more |
 
-| Capability | arabic-nlp-toolkit | camel-tools | farasa | pyarabic |
-|---|:---:|:---:|:---:|:---:|
-| Dialect detection (8 dialects) | ✅ | ❌ | ❌ | ❌ |
-| Dialect sentiment | ✅ | ❌ | ❌ | ❌ |
-| Franco-Arabic ↔ Arabic | ✅ | ❌ | ❌ | ❌ |
-| Keyword extraction | ✅ | ❌ | ❌ | ❌ |
-| Text profiling (register/quality) | ✅ | ❌ | ❌ | ❌ |
-| Morphology + POS + Stemming | ✅ | ✅ | ⚠️ | ⚠️ |
-| Social media cleanup | ✅ | ❌ | ❌ | ❌ |
-| Pydantic v2 results | ✅ | ❌ | ❌ | ❌ |
-| Interactive web demo | ✅ | ❌ | ❌ | ❌ |
-| Core deps | `pydantic` only | many | API | none |
+### Landscape comparison
+
+| Capability | **arabic-nlp-toolkit** | camel-tools | farasa | pyarabic |
+|:-----------|:--:|:--:|:--:|:--:|
+| Multi-dialect detection (8) | ✓ | — | — | — |
+| Dialect-aware sentiment | ✓ | — | — | — |
+| Franco-Arabic transliteration | ✓ | — | — | — |
+| Keyword extraction | ✓ | — | — | — |
+| Text register & quality profiling | ✓ | — | — | — |
+| Morphology · POS · stemming | ✓ | ✓ | partial | partial |
+| Social text normalization | ✓ | — | — | — |
+| Pydantic v2 structured output | ✓ | — | — | — |
+| Interactive web demo | ✓ | — | — | — |
+| Core runtime dependencies | `pydantic` | many | API | none |
 
 ---
 
 ## Installation
 
+**Requirements:** Python 3.9 – 3.12
+
 ```bash
 pip install arabic-nlp-toolkit
 ```
 
-**Optional extras:**
+### Optional extras
 
 ```bash
-pip install arabic-nlp-toolkit[dev]           # pytest, ruff, mypy, …
-pip install arabic-nlp-toolkit[web]           # FastAPI web demo
-pip install arabic-nlp-toolkit[ml]            # scikit-learn (future ML models)
-pip install arabic-nlp-toolkit[transformers]  # HuggingFace (future)
+pip install arabic-nlp-toolkit[web]            # FastAPI live demo
+pip install arabic-nlp-toolkit[dev]            # pytest, ruff, mypy, build tools
+pip install arabic-nlp-toolkit[ml]             # scikit-learn (future ML path)
+pip install arabic-nlp-toolkit[transformers]   # HuggingFace (future path)
 ```
 
-**Requirements:** Python 3.9 – 3.12
+For local development with the full toolchain:
+
+```bash
+pip install -e ".[dev,web]"
+```
 
 ---
 
@@ -107,122 +156,133 @@ from arabic_nlp import ArabicNLP
 
 nlp = ArabicNLP()
 
-# Dialect
-r = nlp.detect_dialect("ازيك عامل ايه النهارده؟")
-print(r.dialect, r.confidence)  # egyptian 0.93
+# Detect dialect with confidence scores
+dialect = nlp.detect_dialect("ازيك عامل ايه النهارده؟")
+print(dialect.dialect, f"{dialect.confidence:.0%}")   # egyptian 93%
 
-# Sentiment
-r = nlp.sentiment("المنتج ده رائع جداً!")
-print(r.label, r.score)  # positive 0.91
+# Sentiment with negation handling
+sentiment = nlp.sentiment("المنتج ده رائع جداً!")
+print(sentiment.label, f"{sentiment.score:.0%}")      # positive 91%
 
-# Full pipeline → JSON-ready document
+# Full document analysis — one call, structured output
 doc = nlp.analyze_document("زيارة محمد صلاح للقاهرة كانت رائعة")
 print(doc.summary)
-print(doc.to_json())
+print(doc.to_json())   # drop into APIs, warehouses, or dashboards
 ```
 
 ---
 
-## Web Demo
+## Live Demo
 
-Test every feature in the browser — no code required.
+Explore every module in the browser — no setup beyond a single install.
 
 ```bash
 pip install -e ".[web]"
 python webapp/app.py
 ```
 
-Opens **http://127.0.0.1:8765** with a polished dark RTL UI:
+| | |
+|:--|:--|
+| **URL** | http://127.0.0.1:8765 |
+| **Playground** | Dialect · sentiment · NER · keywords · profiling · POS · stats · transliteration |
+| **Profile** | Project overview, pipeline diagram, dialect map, feature catalog |
 
-| Tab | What you get |
-|-----|----------------|
-| **Playground** | Live analysis — dialect, sentiment, NER, keywords, profiling, POS, stats, transliteration |
-| **Profile** | Project showcase — stats, feature cards, pipeline & dialect diagrams |
+| Environment variable | Effect |
+|---------------------|--------|
+| `ARABIC_NLP_NO_BROWSER=1` | Do not auto-open the browser |
+| `CI=1` | Same as above (for CI environments) |
 
-**Screens & assets**
+→ Full endpoint reference: [docs/WEBAPP.md](./docs/WEBAPP.md)
 
-- Favicon & logo: [`assets/logo.svg`](./assets/logo.svg)
-- Hero banner: [`assets/banner.svg`](./assets/banner.svg)
-- Pipeline diagram: [`assets/pipeline.svg`](./assets/pipeline.svg)
-- Dialect map: [`assets/dialects.svg`](./assets/dialects.svg)
-
-**URLs**
-
-- Playground: http://127.0.0.1:8765/#playground  
-- Project profile: http://127.0.0.1:8765/#profile  
-
-Set `ARABIC_NLP_NO_BROWSER=1` or `CI=1` to skip auto-opening Chrome.
-
-See [docs/WEBAPP.md](./docs/WEBAPP.md) for API endpoints and development notes.
-
-**GitHub social preview:** upload [`assets/social-preview.svg`](./assets/social-preview.svg) in repo **Settings → General → Social preview**.
+<p align="center">
+  <img src="assets/pipeline.svg" alt="NLP pipeline diagram" width="92%" />
+</p>
 
 ---
 
-## Features
+## Capabilities
 
 ### Dialect detection
 
+Identify regional variety with ranked alternatives and Arabic labels.
+
 ```python
 result = nlp.detect_dialect("شلون حالك اليوم؟ وين رحت؟")
-print(result.dialect)           # Dialect.GULF
-print(result.dialect_name_ar)   # خليجي
-for s in result.all_scores[:3]:
-    print(s.dialect, f"{s.confidence:.0%}")
+print(result.dialect, result.dialect_name_ar)   # gulf · خليجي
+
+for score in result.all_scores[:3]:
+    print(f"  {score.dialect}: {score.confidence:.0%}")
 ```
 
 ### Sentiment analysis
 
-Handles negation (`مش`), intensifiers, and dialect hints.
+Lexicon-driven analysis with negation (`مش`), intensifiers, and optional dialect hints.
 
 ```python
-nlp.sentiment("المنتج مش كويس")                    # negative
-nlp.sentiment("تحفة أوي", dialect=Dialect.EGYPTIAN)
+nlp.sentiment("المنتج مش كويس")                              # negative
+nlp.sentiment("تحفة أوي", dialect=Dialect.EGYPTIAN)          # positive
 ```
 
-### Named Entity Recognition
+### Named entity recognition
+
+Gazetteer- and pattern-based extraction of persons, locations, and organizations.
 
 ```python
-result = nlp.extract_entities("زار محمد صلاح ملعب الأهلي في القاهرة")
-print(result.persons, result.locations, result.organizations)
+entities = nlp.extract_entities("زار محمد صلاح ملعب الأهلي في القاهرة")
+print(entities.persons, entities.locations, entities.organizations)
 ```
 
 ### Tokenization & normalization
 
-```python
-for tok in nlp.tokenize("مرحباً بكم! 🇪🇬"):
-    print(tok.text, tok.token_type, tok.start, tok.end)
+Offset-aware tokenization and configurable social-text cleanup.
 
-nlp.normalize("@user شوف #مصر 🔥", remove_mentions=True, remove_emojis=True)
+```python
+for token in nlp.tokenize("مرحباً بكم! 🇪🇬"):
+    print(token.text, token.token_type, token.start, token.end)
+
+nlp.normalize(
+    "@user شوف #مصر 🔥",
+    remove_mentions=True,
+    remove_emojis=True,
+)
 ```
 
 ### Transliteration
 
+Bidirectional conversion between Arabic script and Franco-Arabic / Buckwalter.
+
 ```python
 from arabic_nlp.models import Script
 
-nlp.transliterate("مرحبا", target=Script.FRANCO)           # mrhba …
+nlp.transliterate("مرحبا", target=Script.FRANCO)
 nlp.transliterate("ana mesh 3aref", source=Script.FRANCO, target=Script.ARABIC)
 ```
 
-### Keywords & text profiling *(v2.0+)*
+### Keywords & text profiling
+
+Extract salient terms and assess register, quality, and recommendations.
 
 ```python
-kw = nlp.extract_keywords("الذكاء الاصطناعي يغير التعليم", top_n=5)
-profile = nlp.profile("ازيك 😂 #مصر https://example.com")
+keywords = nlp.extract_keywords("الذكاء الاصطناعي يغير التعليم", top_n=5)
+profile  = nlp.profile("ازيك 😂 #مصر https://example.com")
+
 print(profile.text_register, profile.quality_score)
 print(profile.recommendations)
 ```
 
-### Morphology, POS, stemming
+### Morphology, POS & stemming
+
+Classical Arabic NLP building blocks for downstream linguistic tasks.
 
 ```python
-nlp.morphology("الكاتب")   # root, gender, definiteness, …
-nlp.tag_pos("ذهب الولد إلى المدرسة")
-nlp.stem("الكتاب")         # كتاب
+nlp.morphology("الكاتب")                        # root, pattern, features
+nlp.tag_pos("ذهب الولد إلى المدرسة")            # universal POS tags
+nlp.stem("الكتاب")                              # كتاب
 ```
 
-### Structured document export
+### Document export & batch processing
+
+Configure pipelines once; analyze at scale.
 
 ```python
 from arabic_nlp.models import ArabicNLPConfig
@@ -231,16 +291,12 @@ nlp = ArabicNLP(config=ArabicNLPConfig(
     extract_keywords_on_analyze=True,
     profile_on_analyze=True,
 ))
+
 doc = nlp.analyze_document("نص للتحليل الكامل")
-doc.to_dict()   # REST API / ETL pipelines
-doc.summary     # logging dashboards
-```
+doc.to_dict()    # REST / ETL
+doc.summary      # logging & monitoring
 
-### Batch processing
-
-```python
 nlp.batch_sentiment(["رائع", "سيء", "عادي"])
-nlp.batch_dialect(texts)
 nlp.batch_analyze(texts, include_keywords=True)
 ```
 
@@ -248,34 +304,27 @@ nlp.batch_analyze(texts, include_keywords=True)
 
 ## NLP Pipeline
 
-End-to-end flow from raw Arabic text to structured output:
+From raw Arabic text to a single structured artifact:
+
+```
+  Input
+    → Normalize     (diacritics, alef variants, social cleanup)
+    → Tokenize      (offset-aware, type-tagged)
+    → Analyze       (dialect · sentiment · NER · POS · morphology)
+    → Enrich        (keywords · text profile · statistics)
+    → Export        (DocumentAnalysis → JSON / summary)
+```
 
 <p align="center">
-  <img src="assets/pipeline.svg" alt="Arabic NLP pipeline: normalize → tokenize → dialect → sentiment → NER → keywords → profile" width="100%" />
+  <img src="assets/dialects.svg" alt="Eight Arabic dialects" width="88%" />
 </p>
-
-```
-Input text
-    → Normalize (diacritics, alef, social cleanup)
-    → Tokenize (offset-aware)
-    → Dialect detection
-    → Sentiment · NER · POS · Morphology
-    → Keywords · Text profile
-    → DocumentAnalysis (JSON / summary)
-```
 
 ---
 
-## Dialects
-
-Eight Arabic varieties with confidence-ranked scores:
-
-<p align="center">
-  <img src="assets/dialects.svg" alt="Supported dialects: MSA, Egyptian, Gulf, Levantine, Maghrebi, Iraqi, Yemeni, Sudanese" width="100%" />
-</p>
+## Supported dialects
 
 | Code | Dialect | العربية |
-|------|---------|---------|
+|:-----|:--------|:--------|
 | `msa` | Modern Standard Arabic | فصحى |
 | `egyptian` | Egyptian | مصري |
 | `gulf` | Gulf | خليجي |
@@ -287,7 +336,7 @@ Eight Arabic varieties with confidence-ranked scores:
 
 ---
 
-## CLI
+## Command-line interface
 
 ```bash
 arabic-nlp detect-dialect "ازيك عامل ايه"
@@ -296,10 +345,9 @@ arabic-nlp keywords "الذكاء الاصطناعي" --top 5
 arabic-nlp profile "نص سوشيال ميديا 😂"
 arabic-nlp export "نص كامل" --keywords --profile -o json
 arabic-nlp analyze "نص للتحليل الشامل"
-arabic-nlp --help
 ```
 
-All commands support `--output json`.
+All commands accept `--output json` for scripting and automation.
 
 ---
 
@@ -307,34 +355,34 @@ All commands support `--output json`.
 
 ```
 arabic_nlp/
-├── core.py              # ArabicNLP façade
-├── models.py            # Pydantic v2 DTOs
-├── cli/                 # arabic-nlp CLI
-├── dialects/            # 8-dialect detection
-├── sentiment/           # Lexicon + negation
+├── core.py              # ArabicNLP — unified entry point
+├── models.py            # Pydantic v2 schemas & configuration
+├── cli/                 # Command-line interface
+├── dialects/            # Eight-dialect classifier
+├── sentiment/           # Lexicon + negation engine
 ├── tokenizer/           # Offset-aware tokenizer
-├── ner/                 # Gazetteer + patterns
-├── normalization/       # Diacritics, alef, social
-├── transliteration/     # Franco, Buckwalter
-├── stopwords/           # Per-dialect sets
+├── ner/                 # Gazetteer + pattern NER
+├── normalization/       # Script & social normalization
+├── transliteration/     # Franco-Arabic · Buckwalter
+├── stopwords/           # Per-dialect stopword sets
 ├── morphology/          # Roots, patterns, features
-├── pos/                 # Universal + Arabic POS
-├── stemmer/             # Light / aggressive
-├── keywords/            # TF keyword extraction
-├── profiling/           # Register + quality
-└── utils/               # Stats, readability, similarity
+├── pos/                 # Arabic + Universal POS
+├── stemmer/             # Light & aggressive stemming
+├── keywords/            # TF-based keyword extraction
+├── profiling/           # Register & quality scoring
+└── utils/               # Statistics · readability · similarity
 
 webapp/                  # FastAPI interactive demo
-assets/                  # SVG logos, banners, diagrams
+assets/                  # Brand & diagram assets (SVG)
 tests/                   # 301+ unit & integration tests
 ```
 
-**Design principles**
-
-- Lazy module loading — fast `import arabic_nlp`
-- Frozen Pydantic models — immutable, thread-safe results
-- Rule-based core — no GPU, no download, works offline
-- Optional ML extras — upgrade path via `[ml]` / `[transformers]`
+| Design choice | Rationale |
+|:--------------|:----------|
+| Lazy module loading | Fast cold start on `import arabic_nlp` |
+| Frozen Pydantic models | Immutable, thread-safe, cache-friendly results |
+| Rule-based core | Predictable, offline, no model registry |
+| Optional ML extras | Clear upgrade path without bloating the default install |
 
 ---
 
@@ -347,63 +395,63 @@ python -m venv .venv
 
 # Windows
 .venv\Scripts\activate
-# Linux/macOS
+# macOS / Linux
 source .venv/bin/activate
 
 pip install -e ".[dev,web]"
-pytest                    # run tests (301+)
+pytest
 ruff check arabic_nlp/ tests/ webapp/
-python examples/usage.py  # feature tour
-python webapp/app.py      # web demo
+python webapp/app.py
 ```
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for lexicon guidelines, commit format, and PR process.
+Contribution guidelines: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---
 
-## CI/CD
+## Quality & CI/CD
 
-Every push and PR runs [GitHub Actions](.github/workflows/ci.yml):
+Every push and pull request is validated via [GitHub Actions](.github/workflows/ci.yml):
 
-| Job | What it does |
-|-----|----------------|
-| **Lint** | `ruff check` + format check |
-| **Test** | `pytest` on Python 3.9–3.12 × Ubuntu & Windows |
+| Stage | Scope |
+|:------|:------|
+| **Lint** | `ruff check` + format enforcement |
+| **Test** | `pytest` across Python 3.9–3.12 on Ubuntu & Windows |
 | **Build** | `python -m build` + `twine check` |
-| **Web smoke** | FastAPI health + dialect API |
+| **Web smoke** | FastAPI health & dialect API via TestClient |
 
-Releases tagged `v*.*.*` trigger [release.yml](.github/workflows/release.yml) (PyPI publish + GitHub Release).
+Tagged releases (`v*.*.*`) trigger automated PyPI publish and GitHub Release creation via [release.yml](.github/workflows/release.yml).
 
 ---
 
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [README.md](./README.md) | You are here |
-| [CHANGELOG.md](./CHANGELOG.md) | Version history |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | How to contribute |
-| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Community standards |
-| [SECURITY.md](./SECURITY.md) | Vulnerability reporting |
-| [docs/API.md](./docs/API.md) | Quick API reference |
-| [docs/WEBAPP.md](./docs/WEBAPP.md) | Web demo guide |
+| Resource | Description |
+|:---------|:------------|
+| [docs/API.md](./docs/API.md) | API quick reference |
+| [docs/WEBAPP.md](./docs/WEBAPP.md) | Web demo & REST endpoints |
 | [docs/PROFILE.md](./docs/PROFILE.md) | Text profiling guide |
+| [CHANGELOG.md](./CHANGELOG.md) | Version history |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution workflow |
+| [SECURITY.md](./SECURITY.md) | Vulnerability reporting |
+| [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Community standards |
 
 ---
 
 ## Roadmap
 
-| Version | Status | Highlights |
-|---------|--------|------------|
-| **v2.0** | ✅ | Morphology, POS, stemming, keywords, profiling, web demo, document export |
-| **v2.1** | 🔜 | ML dialect classifier, AraBERT sentiment, expanded gazetteers |
-| **v2.2** | 📋 | Transformer NER, summarization, async API |
+| Release | Status | Focus |
+|:--------|:-------|:------|
+| **v2.0** | Shipped | Morphology, POS, stemming, keywords, profiling, web demo, document export |
+| **v2.1** | Planned | ML dialect classifier, AraBERT sentiment, expanded gazetteers |
+| **v2.2** | Planned | Transformer NER, summarization, async API |
 
-Track progress in [CHANGELOG.md](./CHANGELOG.md) and [GitHub Issues](https://github.com/OmarSharaf/Arabic-NLP-Toolkit/issues).
+Track progress: [CHANGELOG.md](./CHANGELOG.md) · [GitHub Issues](https://github.com/OmarSharaf/Arabic-NLP-Toolkit/issues)
 
 ---
 
 ## Citation
+
+If you use this library in academic or industry work, please cite:
 
 ```bibtex
 @software{abdelfatah2025arabicnlp,
@@ -420,28 +468,36 @@ Track progress in [CHANGELOG.md](./CHANGELOG.md) and [GitHub Issues](https://git
 
 ## Author
 
-**Omar S. M. Abdelfatah** — [omarsharaf.me](https://www.omarsharaf.me) · [GitHub](https://github.com/OmarSharaf) · [LinkedIn](https://www.linkedin.com/in/omarsharafaldin/)
+**Omar S. M. Abdelfatah**
 
-Built with care from Egypt 🇪🇬
+[omarsharaf.me](https://www.omarsharaf.me) · [GitHub](https://github.com/OmarSharaf) · [LinkedIn](https://www.linkedin.com/in/omarsharafaldin/)
 
 ---
 
 ## License
 
-MIT — see [LICENSE](./LICENSE)
+Released under the [MIT License](./LICENSE).
 
 ```
 Copyright (c) 2025 Omar S. M. Abdelfatah
 ```
 
+---
+
 <div align="center">
 
-<img src="assets/logo.svg" alt="" width="40" height="40" />
+<img src="assets/logo.svg" alt="" width="36" height="36" />
+
+<br/><br/>
+
+**Arabic NLP Toolkit** · v2.0.0 · MIT
 
 <br/>
 
-**If this project helps you, please ⭐ the repo — it helps Arabic developers discover it.**
+If this project supports your work, a star on GitHub helps other Arabic developers discover it.
 
-[⭐ Star on GitHub](https://github.com/OmarSharaf/Arabic-NLP-Toolkit)
+<br/>
+
+[![Star on GitHub](https://img.shields.io/github/stars/OmarSharaf/Arabic-NLP-Toolkit?style=for-the-badge&logo=github&label=Star%20this%20repo&labelColor=1a2332&color=3b82f6)](https://github.com/OmarSharaf/Arabic-NLP-Toolkit)
 
 </div>
